@@ -2,6 +2,8 @@
 Resource        cumulusci/robotframework/Salesforce.robot
 
 *** Keywords ***
+
+########################### 1 ###############################
 Create a test Contact
    [Documentation]  Create a temporary Contact and return it
    
@@ -17,4 +19,19 @@ Create a test Contact
    ## Fetch the Contact object to be returned and save
    ## it to a test variable
    &{new contact}=    Salesforce Get   Contact    ${contact_id}
+   Set test variable  &{new contact}
+
+########################### 2 ###############################
+Create other contacts
+   [Arguments]    ${first name}       ${last name}    
+   [Documentation]  Create a temporary Contact and return it
+
+   ## Create a new Contact
+   ${contact id}=   Salesforce Insert  Contact
+   ...  FirstName=${first name}
+   ...  LastName=${last name}
+
+   ## Fetch the Contact object to be returned and save
+   ## it to a test variable
+   &{new contact}=    Salesforce Get    Contact    ${contact_id}
    Set test variable  &{new contact}
