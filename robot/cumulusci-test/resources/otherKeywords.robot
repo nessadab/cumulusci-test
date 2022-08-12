@@ -1,6 +1,7 @@
 *** Settings ***
 Resource        cumulusci/robotframework/Salesforce.robot
 
+*** Keywords ***
 Create a test Contact
    [Documentation]  Create a temporary Contact and return it
    
