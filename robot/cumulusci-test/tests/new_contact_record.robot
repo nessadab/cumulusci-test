@@ -4,14 +4,18 @@ Documentation   A simple Robot test
 Suite Teardown  Delete session records
 
 *** Test Cases ***
-Create a Contact using the API
+Create a Contact with a generated name
+   [Teardown]       Delete session records
+
+   ## Generate a name to use for Contact
+   ${first name}=   Get fake data  first_name
+   ${last name}=    Get fake data  last_name
 
    ## Create a new Contact
    ${contact id}=   Salesforce Insert  Contact
-   ...  FirstName=Eleanor
-   ...  LastName=Rigby
+   ...  FirstName=${first name}
+   ...  LastName=${last name}
 
-   ## Get the new Contact and examine it
+   ## Get the new Contact and add name to the log
    &{contact}=      Salesforce Get  Contact  ${contact id}
-   Should be equal  ${contact}[FirstName]    Eleanor
-   Should be equal  ${contact}[LastName]     Rigby
+   Log  Contact name: ${contact}[Name]
