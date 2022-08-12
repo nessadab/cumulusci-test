@@ -1,6 +1,6 @@
 *** Settings ***
 Resource        cumulusci/robotframework/Salesforce.robot
-Resource        cumulusci-test/robot/cumulusci-test/resources/cumulusci-test.robot
+Resource        robot/cumulusci-test/resources/otherKeywords.robot
 
 Suite Teardown  Delete session records
 
