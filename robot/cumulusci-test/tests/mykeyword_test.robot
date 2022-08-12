@@ -5,8 +5,12 @@ Suite Teardown  Delete session records
 
 
 *** Test Cases ***
-Create a Contact with a generated name
-   Create a test Contact        Jane      Fonda
+Create Contacts with below names
+   Create a test Contact        Lili      Mali
+   Create a test Contact        Bibi      Fifi
+   Create a test Contact        Gigi      Hadid
+   Create a test Contact        Mimi      Bakery
+
 
 *** Keywords ***
 Create a test Contact
